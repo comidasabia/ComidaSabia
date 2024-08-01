@@ -1,0 +1,5 @@
+const opciones = [
+  { id: 'opcion1', nombre: 'Opción 1', descripcion: 'Descripción de la opción 1 \n asdad.', imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', grupo: 1, visible: true },
+  { id: 'opcion2', nombre: 'Opción 2', descripcion: 'Descripción de la opción 2.', imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', grupo: 1, visible: true },
+  { id: 'opcion3', nombre: 'Opción 3', descripcion: 'Descripción de la opción 3.', imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', grupo: 2, visible: true }
+];
