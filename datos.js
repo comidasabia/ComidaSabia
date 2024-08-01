@@ -5,6 +5,6 @@ const opciones = [
 ];
 
 
-const descripcionInfo = 'Programación para entregar hasta el 06 de Agosto
+const descripcionInfo = `Programación para entregar hasta el 06 de Agosto
 6 menús $27.000,00 - (sería cada uno $4.500,00) - envío gratis.
-1 menú o más cada uno $5.000,00 - envió a consultar.';
+1 menú o más cada uno $5.000,00 - envió a consultar.`;
