@@ -20,14 +20,6 @@ const opciones = [
     descripcion: 'OMELETT: de 3 huevos, con sofrito de verduras y 4 quesos, acompañado de \ntortilla de verduras. (zapallitos, cebollas, zanahorias, morrón).', 
   },
   { 
-    id: 'opcion3',
-    grupo: 2, 
-    visible: true,
-    imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', 
-    nombre: 'OMELETT CON PAPA', 
-    descripcion: 'OMELETT: de 3 huevos, con sofrito de verduras y 4 quesos, acompañado de \ntortilla de verduras. (zapallitos, cebollas, zanahorias, morrón).', 
-  },
-  { 
     id: 'opcion4',
     grupo: 2, 
     visible: true,
@@ -37,7 +29,7 @@ const opciones = [
   },
   { 
     id: 'opcion5',
-    grupo: 3, 
+    grupo: 2, 
     visible: true,
     imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', 
     nombre: 'ESCALOPE DE BERENJENA', 
@@ -53,21 +45,13 @@ const opciones = [
   },
     { 
     id: 'opcion7',
-    grupo: 4, 
+    grupo: 3, 
     visible: true,
     imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', 
     nombre: 'CANELONES DE POLLO', 
     descripcion: 'CANELONES DE POLLO: con carne de pollo y verduras, acompañado de salsa bechamel.', 
   },
-    { 
-    id: 'opcion8',
-    grupo: 4, 
-    visible: true,
-    imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', 
-    nombre: 'OMELETT CON PAPA', 
-    descripcion: 'OMELETT: de 3 huevos, con sofrito de verduras y 4 quesos, acompañado de \ntortilla de verduras. (zapallitos, cebollas, zanahorias, morrón).', 
-  },
-    { 
+  { 
     id: 'opcion9',
     grupo: 5, 
     visible: true,
