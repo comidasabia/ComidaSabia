@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      padding-top: 20px;
+    }
+    .container {
+      width: 90%;
+      max-width: 800px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .titulo-card {
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .opcion-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .opcion-img {
+      max-width: 160px;
+      max-height: 160px;
+      float:left;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+    .descripcion {
+      margin-bottom: 20px;
+      text-align: left;
+      flex: 1;
+    }
+    .cantidad-container {
+      display: flex;
+      float: right;
+      align-items: center;
+    }
+    .cantidad {
+      width: 50px;
+      text-align: center;
+      color: #333;
+      border: 1px solid #ddd;
+      height: 30px;
+    }
+    .cantidad-btn {
+      background-color: #f28b82;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+    }
+    .cantidad-btn:hover {
+      background-color: #e57373;
+    }
+    .boton-verde {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #34a853;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      display: inline-block;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .boton-verde:hover {
+      background-color: #2c8b43;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="titulo-card">
+      <img style="height:200px" src="https://lh6.googleusercontent.com/ZxiFzKiESg5DR3gfnuIh13s5lD7s3UmLngZJUOyr4sw0eltY0zqRilel3oO-gVWLnbCFt9fyO_Lojyq38lHZpHaqhdwVBsEQFzj1F4Pg58_UmNsUtAGmD6ABV94SoTzQdA=w500">
+    </div>
+    
+    <div id="opciones-container"></div>
+
+    <button class="boton-verde" id="botonEnviar" onclick="generarYEnviarWhatsApp()">Enviar por WhatsApp</button>
+    <div id="enlaceWhatsapp" style="display: none;"></div>
+  </div>
+
+  <script>
+    var opciones = [
+      { id: 'opcion1', nombre: 'Opción 1', descripcion: 'Descripción de la opción 1 \n asdad.', imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', grupo: 1, visible: true },
+      { id: 'opcion2', nombre: 'Opción 2', descripcion: 'Descripción de la opción 2.', imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', grupo: 1, visible: true },
+      { id: 'opcion3', nombre: 'Opción 3', descripcion: 'Descripción de la opción 3.', imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', grupo: 2, visible: true }
+    ];
+
+    var grupos = []
+    opciones.forEach(opcion =>{
+      if (!grupos.find(x => x == opcion.grupo))
+        grupos.push(opcion.grupo);
+    });
+
+    function crearOpciones() {
+      var container = document.getElementById('opciones-container');
+      grupos.forEach(grupo => {
+
+        var opcionCard = document.createElement('div');
+        opcionCard.className = 'opcion-card';
+
+      opciones.filter(x => x.grupo == grupo && x.visible).forEach(opcion => {
+        
+        var img = document.createElement('img');
+        img.src = opcion.imgSrc;
+        img.alt = opcion.nombre;
+        img.className = 'opcion-img';
+
+        var descripcionDiv = document.createElement('div');
+        descripcionDiv.className = 'descripcion';
+
+        var nombre = document.createElement('h3');
+        nombre.innerText = opcion.nombre;
+
+        var descripcion = document.createElement('p');
+        descripcion.innerText = opcion.descripcion;
+
+        var cantidadContainer = document.createElement('div');
+        cantidadContainer.className = 'cantidad-container';
+
+        var botonMenos = document.createElement('button');
+        botonMenos.className = 'cantidad-btn';
+        botonMenos.innerText = '-';
+        botonMenos.onclick = () => cambiarCantidad(opcion.id, -1);
+
+        var inputCantidad = document.createElement('input');
+        inputCantidad.type = 'text';
+        inputCantidad.className = 'cantidad';
+        inputCantidad.id = opcion.id;
+        inputCantidad.value = '0';
+        inputCantidad.readOnly = true;
+
+        var botonMas = document.createElement('button');
+        botonMas.className = 'cantidad-btn';
+        botonMas.innerText = '+';
+        botonMas.onclick = () => cambiarCantidad(opcion.id, 1);
+
+        cantidadContainer.appendChild(botonMenos);
+        cantidadContainer.appendChild(inputCantidad);
+        cantidadContainer.appendChild(botonMas);
+
+        descripcionDiv.appendChild(img);
+        descripcionDiv.appendChild(nombre);
+        descripcionDiv.appendChild(descripcion);
+        descripcionDiv.appendChild(cantidadContainer);
+
+        opcionCard.appendChild(descripcionDiv);
+
+        });
+
+        container.appendChild(opcionCard);
+
+      });
+    }
+
+    function cambiarCantidad(id, cambio) {
+      var cantidad = document.getElementById(id);
+      var valor = parseInt(cantidad.value) + cambio;
+      if (valor >= 0) {
+        cantidad.value = valor;
+      }
+    }
+
+    function generarYEnviarWhatsApp() {
+      var mensaje = 'Opciones seleccionadas:\n';
+      var opcionesSeleccionadas = 0;
+      opciones.forEach(opcion => {
+        var cantidad = document.getElementById(opcion.id).value;
+        if (cantidad > 0) {
+          mensaje += `- ${opcion.nombre}: ${cantidad} unidades\n`;
+          opcionesSeleccionadas++;
+        }
+      });
+
+      if (opcionesSeleccionadas === 0) {
+        alert('Por favor selecciona al menos una opción.');
+        return;
+      }
+
+      var mensajeEncoded = encodeURIComponent(mensaje);
+      var telefono = '3115798'; // Ingresa el número de teléfono fijo aquí
+      var whatsappURL = 'https://wa.me/' + telefono + '?text=' + mensajeEncoded;
+
+      window.open(whatsappURL, '_blank');
+    }
+
+    document.addEventListener('DOMContentLoaded', crearOpciones);
+  </script>
+</body>
+</html>
