@@ -164,7 +164,7 @@ const opciones = [
     descripcion: 'GUISO DE LENTEJAS: Lentejas, sofrito, papas, zanahorias, mondongo, pechito de cerdo y salchicha parrillera.', 
   },
   {
-    id: 'opcion21',
+    id: 'opcion26',
     grupo: 11,
     visible: true,
     imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', 
@@ -188,7 +188,7 @@ const opciones = [
     descripcion: 'COSTELETAS DE CERDO: Costeletas de cerdo, al grill, acompañado con batata, papas y calabaza al natural.', 
   },
   {
-    id: 'opcion26',
+    id: 'opcion27',
     grupo: 14,
     visible: true,
     imgSrc: 'https://i.imgur.com/cfwJR64.jpeg', 
