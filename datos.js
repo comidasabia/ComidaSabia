@@ -1,6 +1,10 @@
-const descripcionInfo = `Programación para entregar hasta el 06 de Agosto
-6 menús $27.000,00 - (sería cada uno $4.500,00) - envío gratis.
-1 menú o más cada uno $5.000,00 - envió a consultar.`;
+
+const precio = 5000;
+const precioUnico = 6000;
+
+const descripcionInfo = `Programación para entregar hasta el 06 de Agosto \n
+6 menús - (sería cada uno $${precio},00) - envío gratis.\n
+1 menú  $${precioUnico},00 - envió a consultar.`;
 
 const opciones = [
   { 
@@ -284,6 +288,3 @@ const opciones = [
     descripcion: 'Escalope de carne de ternera, macerada y pasada por masa, acompañada con puré.', 
   },
 ];
-
-
-
