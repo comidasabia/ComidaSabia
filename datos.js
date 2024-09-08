@@ -7,6 +7,105 @@ const descripcionInfo = `Programación para entregar hasta el 06 de Agosto \n
 1 menú  $${precioUnico},00 - envió a consultar.`;
 
 const opciones = [
+  {
+    id: 'opcion15',
+    grupo: 1,
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'ARROZ PRIMAVERA', 
+    descripcion: 'Arroz blanco, lentejas, arvejas, apio, cebolla morada, tomate, manzana verde, ralladura de limón.', 
+  },
+  {
+    id: 'opcion39',
+    grupo: 1,
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'ARROZ PRIMAVERA INTEGRAL', 
+    descripcion: 'Arroz integral, lentejas, arvejas, apio, cebolla morada, tomate, manzana verde, ralladura de limón.', 
+  },
+  {
+    id: 'opcion40',
+    grupo: 2,
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'MILANESA DE TERNERA', 
+    descripcion: 'Una milanesa de ternera, (macerada en huevo, mostaza, leche), empanada con pan rallado, acompañada con arroz graneado.', 
+  },
+  {
+    id: 'opcion41',
+    grupo: 2,
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'MILANESA DE POLLO', 
+    descripcion: 'Una suprema de pechuga de pollo, (macerada en huevo y leche), empanada en pan rallado, acompañada con arroz graneado.', 
+  },
+  { 
+    id: 'opcion1',
+    grupo: 4, 
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'OMELETT CON VERDURA', 
+    descripcion: 'Omelett de 3 huevo, con sofrito de verduras y 4 quesos, acompañado de tortilla de papas.', 
+  },
+  {
+    id: 'opcion16',
+    grupo: 4,
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'OMELETT', 
+    descripcion: 'Omelette de 3 huevos, con sofrito de verduras y 4 quesos, acompañado de tortilla de verduras. (zapallitos, cebollas, zanahorias, morrón).', 
+  },
+  { 
+    id: 'opcion6',
+    grupo: 5, 
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'CANELONES', 
+    descripcion: 'Con carne de ternera, con salsa bolognesa. (carne de ternera picada. Tomate, cebolla, ajo y vino tinto).', 
+  },
+  { 
+    id: 'opcion7',
+    grupo: 5, 
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'CANELONES DE POLLO', 
+    descripcion: 'Con carne de pollo y verduras, acompañado de salsa bechamel.', 
+  },
+  { 
+    id: 'opcion9',
+    grupo: 6, 
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'RISOTTO CON ALBÓNDIGAS', 
+    descripcion: 'Arroz doble carolina, sellado en aceite de oliva e hidratado con caldo de verduras y 4 quesos, \ncon albóndigas (carne de ternera picada, con cebolla y morrón y salsa de tomate).', 
+  },
+  {
+    id: 'opcion14',
+    grupo: 6,
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'PASTAS FRESCAS', 
+    descripcion: 'Pastas caseras tallarín, en sémola y huevo; con salsa bolognesa (carne picada, cebolla, tomate, ajo y vino tinto).', 
+  },
+  {
+    id: 'opcion26',
+    grupo: 7,
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'BASTONES DE ATUN', 
+    descripcion: 'Lomito de atún, macerado y empanado en masa, acompañado de verduras grilladas.', 
+  },
+  {
+    id: 'opcion32',
+    grupo: 7,
+    visible: true,
+    imgSrc: 'https://imgur.com/UFptdrw.jpeg', 
+    nombre: 'BIFES A LA CRIOLLA', 
+    descripcion: 'Bifes a la criolla, con carne de ternera, papas, salsa y huevo', 
+  },
+];
+
+const opcionesAll = [
   { 
     id: 'opcion1',
     grupo: 1, 
@@ -39,7 +138,7 @@ const opciones = [
     nombre: 'ESCALOPE DE BERENJENA', 
     descripcion: 'Berenjenas macerada y recubierta en masa, acompañado de verduras grilladas.', 
   },
-    { 
+  { 
     id: 'opcion6',
     grupo: 3, 
     visible: true,
@@ -54,14 +153,6 @@ const opciones = [
     imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
     nombre: 'CANELONES DE POLLO', 
     descripcion: 'Con carne de pollo y verduras, acompañado de salsa bechamel.', 
-  },
-  {
-    id: 'opcion23',
-    grupo: 3,
-    visible: true,
-    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
-    nombre: 'CANELONES DE CARNE', 
-    descripcion: 'Con carne de ternera, con salsa bolognesa. (carne de ternera picada. Tomate, cebolla, ajo y vino tinto).', 
   },
   { 
     id: 'opcion9',
@@ -132,7 +223,7 @@ const opciones = [
     grupo: 8,
     visible: true,
     imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
-    nombre: 'BOMELETT', 
+    nombre: 'OMELETT', 
     descripcion: 'Omelette de 3 huevos, con sofrito de verduras y 4 quesos, acompañado de tortilla de verduras. (zapallitos, cebollas, zanahorias, morrón).', 
   },
   {
@@ -237,7 +328,7 @@ const opciones = [
     visible: true,
     imgSrc: 'https://imgur.com/UFptdrw.jpeg', 
     nombre: 'BIFES A LA CRIOLLA', 
-    descripcion: 'Bifes de ternera con salsa, papas y huevo.', 
+    descripcion: 'Bifes a la criolla, con carne de ternera, papas, salsa y huevo', 
   },
   {
     id: 'opcion33',
@@ -287,4 +378,29 @@ const opciones = [
     nombre: 'ESCALOPE DE TERNERA CON PURÉ', 
     descripcion: 'Escalope de carne de ternera, macerada y pasada por masa, acompañada con puré.', 
   },
+  {
+    id: 'opcion39',
+    grupo: 8,
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'ARROZ PRIMAVERA INTEGRAL', 
+    descripcion: 'Arroz integral, lentejas, arvejas, apio, cebolla morada, tomate, manzana verde, ralladura de limón.', 
+  },
+  {
+    id: 'opcion40',
+    grupo: 8,
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'MILANESA DE TERNERA', 
+    descripcion: 'Una milanesa de ternera, (macerada en huevo, mostaza, leche), empanada con pan rallado, acompañada con arroz graneado.', 
+  },
+  {
+    id: 'opcion41',
+    grupo: 8,
+    visible: true,
+    imgSrc: 'https://imgur.com/KGThXfV.jpeg', 
+    nombre: 'MILANESA DE POLLO', 
+    descripcion: 'Una suprema de pechuga de pollo, (macerada en huevo y leche), empanada en pan rallado, acompañada con arroz graneado.', 
+  },
+
 ];
