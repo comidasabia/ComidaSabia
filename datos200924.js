@@ -2,7 +2,7 @@
 const precio = 5000;
 const precioUnico = 5500;
 
-const descripcionInfo = `Menus disponibles hasta el 16 de Septiembre \n
+const descripcionInfo = `Menus disponibles \n
 6 menús - (sería cada uno $${precio},00) - envío gratis.\n
 1 menú  $${precioUnico},00 - envió a consultar.`;
 
