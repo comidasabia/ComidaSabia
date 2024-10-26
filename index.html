@@ -97,6 +97,30 @@
       background-color: #e57373;
     }
 
+    .floating-cart {
+      position: fixed;
+      top: 2%;
+      left: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 200px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .total {
+      font-weight: bold;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
     .boton-verde {
       margin-top: 20px;
       padding: 10px 20px;
@@ -131,6 +155,21 @@
 
     <div id="opciones-container"></div>
 
+    <div class="floating-cart" id="floatingCart">
+      <div style="display: flex; align-items: center;">
+        <h3 id="carrito">Carrito</h3>
+        <button id="ocultarDetalle" onclick="onClickOcultarDetalle()" style="margin-left: 10px;display:none;">
+          Ocultar
+        </button>
+        <button id="verDetalle" onclick="onClickVerDetalle()" style="margin-left: 10px;display:none;">
+          Ver detalle
+        </button>
+      </div>
+      <div id="cartItems"></div>
+
+      <div class="total">Total: $<span id="totalAmount">0</span></div>
+    </div>
+
     <label class="comentario" for="nombre">Nombre:</label><br>
     <input type="text" id="nombre" name="nombre" style="width: 500px; height: 50px;">
 
@@ -142,16 +181,16 @@
 
     <br>
     <br>
-    
+
     <label class="comentario" for="comentarios">Alergia / Comentarios:</label><br>
-    <textarea id="comentarios" name="comentarios" class="comentario" rows="4" cols="50" style="width: 803px; height: 161px;"
-      placeholder=""></textarea>
+    <textarea id="comentarios" name="comentarios" class="comentario" rows="4" cols="50"
+      style="width: 803px; height: 161px;" placeholder=""></textarea>
 
     <button class="boton-verde" id="botonEnviar" onclick="generarYEnviarWhatsApp()">Enviar por WhatsApp</button>
     <div id="enlaceWhatsapp" style="display: none;"></div>
   </div>
 
-  <script src="datos261024.js"></script>
+  <script src="datos271024.js"></script>
   <script>
     var grupos = []
     opciones.forEach(opcion => {
@@ -229,20 +268,70 @@
       if (valor >= 0) {
         cantidad.value = valor;
       }
+
+      updateCart()
+    }
+
+    function onClickOcultarDetalle() {
+      const verDetalle = document.getElementById('verDetalle');
+      const ocultar = document.getElementById('ocultarDetalle');
+
+      verDetalle.style.display = 'flex';
+      ocultar.style.display = 'none';
+      updateCart();
+    }
+
+    function onClickVerDetalle() {
+      const verDetalle = document.getElementById('verDetalle');
+      const ocultar = document.getElementById('ocultarDetalle');
+
+      verDetalle.style.display = 'none';
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItemsDiv = document.getElementById('cartItems');
+      cartItemsDiv.innerHTML = ''; // Limpiar el carrito
+
+      const verDetalle = document.getElementById('verDetalle').style.display === 'none';
+
+      let opcionesSeleccionadas = 0;
+      let acumulado = 0;
+      opciones.forEach(opcion => {
+        let cantidad = document.getElementById(opcion.id).value;
+        acumulado += parseInt(cantidad);
+        if (cantidad > 0) {
+          if (verDetalle) {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'cart-item';
+            itemDiv.innerHTML = `<span>${opcion.nombre}</span><span>${cantidad}</span>`;
+            cartItemsDiv.appendChild(itemDiv);
+          }
+          opcionesSeleccionadas++;
+        }
+      });
+
+      const carrito = document.getElementById('carrito');
+      carrito.innerHTML = `Carrito (${acumulado})`;
+
+      if (document.getElementById('verDetalle').style.display === 'none' && opcionesSeleccionadas > 0)
+        document.getElementById('ocultarDetalle').style.display = 'flex';
+      else
+        document.getElementById('ocultarDetalle').style.display = 'none';
+
+      document.getElementById('totalAmount').innerText = (acumulado * (acumulado >= 6 ? precio : precioUnico)).toFixed(2);
     }
 
     function generarYEnviarWhatsApp() {
 
       var nombre = document.getElementById("nombre").value;
-      if (!nombre)
-      {
+      if (!nombre) {
         alert('Por favor ingrese nombre.');
         return;
       }
 
       var direccion = document.getElementById("direccion").value;
-      if (!direccion)
-      {
+      if (!direccion) {
         alert('Por favor ingrese dirección.');
         return;
       }
@@ -260,7 +349,7 @@
         }
       });
 
-      mensaje += `\nImporte aproximado: $${ acumulado * (acumulado >= 6 ? precio : precioUnico)} para ${acumulado} unidades`
+      mensaje += `\nImporte aproximado: $${acumulado * (acumulado >= 6 ? precio : precioUnico)} para ${acumulado} unidades`
 
       var comentarios = document.getElementById("comentarios").value;
       if (comentarios)
