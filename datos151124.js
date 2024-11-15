@@ -61,7 +61,7 @@ const opciones = [
     visible: true,
     imgSrc: 'https://imgur.com/nClWUr0.jpeg',
     nombre: 'BASTONES DE ATUN',
-    descripcion: 'Lomito de atún, macerado y empanado en masa, acompañado de verduras grilladas.',
+    descripcion: 'Lomito de atún, macerado y empanado en masa, acompañado de ensalada.',
   },
   {
     id: 'opcion25',
@@ -93,7 +93,7 @@ const opciones = [
     visible: true,
     imgSrc: 'https://imgur.com/KGThXfV.jpeg',
     nombre: 'HAMBURGUESA',
-    descripcion: 'Hamburguesas de carne de ternera, acompañada de puré mixto, (papas y calaza)',
+    descripcion: 'Hamburguesas de carne de ternera, acompañada de puré mixto, (papas y calabaza)',
   },
   {
     id: 'opcion50',
@@ -264,7 +264,7 @@ const opcionesAll = [
     visible: true,
     imgSrc: 'https://imgur.com/nClWUr0.jpeg',
     nombre: 'BASTONES DE ATUN',
-    descripcion: 'Lomito de atún, macerado y empanado en masa, acompañado de verduras grilladas.',
+    descripcion: 'Lomito de atún, macerado y empanado en masa, acompañado de ensalada.',
   },
   {
     id: 'opcion24',
@@ -452,11 +452,11 @@ const opcionesAll = [
   },
   {
     id: 'opcion49',
-    grupo: 10,
+    grupo: 6,
     visible: true,
     imgSrc: 'https://imgur.com/KGThXfV.jpeg',
     nombre: 'HAMBURGUESA',
-    descripcion: 'Hamburguesas de carne de ternera, acompañada de puré mixto, (papas y calaza)',
+    descripcion: 'Hamburguesas de carne de ternera, acompañada de puré mixto, (papas y calabaza)',
   },
   {
     id: 'opcion50',
