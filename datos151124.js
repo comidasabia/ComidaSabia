@@ -46,7 +46,7 @@ const opciones = [
     descripcion: 'Masa casera de sémola, rellenes de espinaca, ricota y nueces, con salsa bolognesa, de carne de ternera, sofrito vegetal y vino tinto.',
   },
   {
-    id: 'opcion47',
+    id: 'opcion48',
     grupo: 3,
     visible: true,
     imgSrc: 'https://imgur.com/KGThXfV.jpeg',
